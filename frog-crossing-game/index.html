@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🐸 Frog Crossing - Classic Arcade Game</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="game-container">
+        <div class="game-header">
+            <h1>🐸 FROG CROSSING</h1>
+            <div class="controls-info">
+                <span>Use Arrow Keys or WASD to move</span>
+                <button id="soundToggle" class="sound-btn">🔊 Sound ON</button>
+            </div>
+        </div>
+        
+        <div class="hud">
+            <div class="hud-item">
+                <span class="hud-label">Score:</span>
+                <span id="score" class="hud-value">0</span>
+            </div>
+            <div class="hud-item">
+                <span class="hud-label">Level:</span>
+                <span id="level" class="hud-value">1</span>
+            </div>
+            <div class="hud-item">
+                <span class="hud-label">Lives:</span>
+                <span id="lives" class="hud-value">❤️❤️❤️</span>
+            </div>
+        </div>
+
+        <div class="canvas-wrapper">
+            <canvas id="gameCanvas" width="800" height="600"></canvas>
+            
+            <!-- Start Screen Overlay -->
+            <div id="startScreen" class="overlay">
+                <div class="overlay-content">
+                    <h2>🐸 FROG CROSSING 🐸</h2>
+                    <p class="instructions">Help the frog cross the busy street!</p>
+                    <div class="instructions-list">
+                        <p>🎮 <strong>Controls:</strong></p>
+                        <p>↑ ↓ ← → or W A S D to move</p>
+                        <p><br>🎯 <strong>Objective:</strong></p>
+                        <p>Reach the top of the screen without getting hit!</p>
+                        <p><br>⭐ <strong>Scoring:</strong></p>
+                        <p>+100 points for each successful crossing</p>
+                        <p>+50 bonus for each remaining life</p>
+                    </div>
+                    <button id="startButton" class="game-button">PRESS SPACE TO START</button>
+                </div>
+            </div>
+
+            <!-- Game Over Overlay -->
+            <div id="gameOverScreen" class="overlay hidden">
+                <div class="overlay-content">
+                    <h2>💀 GAME OVER 💀</h2>
+                    <p class="final-score">Final Score: <span id="finalScore">0</span></p>
+                    <p class="final-level">Level Reached: <span id="finalLevel">1</span></p>
+                    <button id="restartButton" class="game-button">PRESS R TO RESTART</button>
+                </div>
+            </div>
+
+            <!-- Level Complete Overlay -->
+            <div id="levelCompleteScreen" class="overlay hidden">
+                <div class="overlay-content celebration">
+                    <h2>🎉 LEVEL COMPLETE! 🎉</h2>
+                    <p class="level-info">Level <span id="completedLevel">1</span> Cleared!</p>
+                    <p class="bonus-info">Bonus: +<span id="bonusPoints">0</span> points</p>
+                    <p class="next-level-info">Get ready for Level <span id="nextLevel">2</span>...</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="game-footer">
+            <p>Classic arcade-style frog crossing game • Made with ❤️</p>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>
